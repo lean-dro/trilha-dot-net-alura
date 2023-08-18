@@ -6,7 +6,7 @@ namespace AluraEstacionamento.Testes
 {
     public class PatioTestes
     {
-        [Fact]
+        [Fact(DisplayName ="Teste N° 1")]
         public void ValidaFaturamento()
         {
             //Arrange
@@ -51,5 +51,7 @@ namespace AluraEstacionamento.Testes
             Assert.Equal(2, faturamento);
 
         }
+
+    
     }
 }
