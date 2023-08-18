@@ -3,6 +3,7 @@ using Alura.Estacionamento.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -83,9 +84,21 @@ namespace Alura.Estacionamento.Modelos
             return informacao;
         }
 
-        
+        public Veiculo PesquisaVeiculo(string placa)
+        {
+            var encontrado = (from veiculo in this.Veiculos
+                              where veiculo.Placa == placa
+                              select veiculo).SingleOrDefault();
+            return encontrado;
+        }
 
-       
-    
+        public Veiculo AlterarDadosVeiculo(Veiculo veiculoAlterado)
+        {
+           var veiculoTemporario = (from veiculo in this.Veiculos
+                                    where veiculo.Placa == veiculoAlterado.Placa
+                                    select veiculo).SingleOrDefault();
+            veiculoTemporario.AlterarDados(veiculoAlterado);
+            return veiculoTemporario;
+        }
     }
 }
