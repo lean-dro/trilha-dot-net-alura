@@ -103,6 +103,16 @@ namespace Alura.Estacionamento.Modelos
 
 
         }
-       
+
+        public override string ToString()
+        {
+            return $"Ficha do veículo:\n" +
+                $"Tipo do veículo: {this.Tipo}\n" +
+                $"Proprietário: {this.Proprietario}\n" +
+                $"Modelo: {this.Modelo}\n" +
+                $"Cor: {this.Cor}\n" +
+                $"Placa: {this.Placa}";
+        }
+
     }
 }
