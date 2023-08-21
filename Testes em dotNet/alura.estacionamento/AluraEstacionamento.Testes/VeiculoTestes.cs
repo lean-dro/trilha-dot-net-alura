@@ -20,7 +20,7 @@ namespace AluraEstacionamento.Testes
             SaidaConsoleTeste = saida;
             SaidaConsoleTeste.WriteLine("Construtor invocado ");
             veiculo = new Veiculo();
-            SaidaConsoleTeste.WriteLine(veiculo.ToString());
+            
         }
 
         [Fact]
@@ -69,12 +69,46 @@ namespace AluraEstacionamento.Testes
             Assert.Contains("Ficha do veículo:", dados);
         }
 
+        
+
+        [Fact]
+        public void TestaNomeProprietarioVeiculoComMenosDeTresCaracteres()
+        {
+            //Arrange
+            string nomeProprietario = "ab";
+
+            //Assert
+            Assert.Throws<System.FormatException>(
+                //Act
+                () => new Veiculo(nomeProprietario)
+
+             ) ;
+        }
+        [Fact]
+        public void TestaMensagemDeExcecaoDoQuartoCaractereDaPlaca()
+        {
+            string placa = "ASDF8888";
+            var mensagem = Assert.Throws<System.FormatException>(
+                () => new Veiculo().Placa = placa
+             ) ;
+            Assert.Equal("O 4° caractere deve ser um hífen", mensagem.Message);
+        } 
+
+        public void TestaUltimosDigitosDaPlacaSaoNumeros()
+        {
+            string placa = "AAAAAAAAA";
+            var mensagemDeErro = Assert.Throws<System.FormatException>(
+            () => new Veiculo().Placa = placa
+                );
+            Assert.Equal("Do 5º ao 8º caractere deve-se ter um número!", mensagemDeErro.Message);
+        }
+
         public void Dispose()
         {
             SaidaConsoleTeste.WriteLine("Dispose invocado ");
-            SaidaConsoleTeste.WriteLine(veiculo.ToString());
+           
         }
 
- 
+
     }
 }

@@ -8,12 +8,15 @@ namespace Alura.Estacionamento.Modelos
     public class Veiculo
     {
         //Campos    
+        private string _ticket;
         private string _placa;
         private string _proprietario;
         private TipoVeiculo _tipo;
-     
-        //Propriedades   
+        
 
+
+        //Propriedades   
+       
         public string Placa
         {
             get
@@ -67,11 +70,24 @@ namespace Alura.Estacionamento.Modelos
         public string Modelo { get; set; }        
         public string Proprietario
         {
-            get; set;
+            get
+            {
+                return _proprietario;
+            }
+            set
+            {
+                if (value.Length < 3)
+                {
+                    throw new System.FormatException("Nome menor que 3 caracteres");
+                }
+                _proprietario = value;
+            }
         }
         public DateTime HoraEntrada { get; set; }
         public DateTime HoraSaida { get; set; }   
         public TipoVeiculo Tipo { get => _tipo; set => _tipo = value; }
+        public string Ticket { get { return _ticket; } set { _ticket = value; } }
+        public string IdTicket { get; set; }
 
         //Métodos
         public void Acelerar(int tempoSeg)
