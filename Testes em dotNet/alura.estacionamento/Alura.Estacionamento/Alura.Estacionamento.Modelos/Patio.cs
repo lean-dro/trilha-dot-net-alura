@@ -26,6 +26,10 @@ namespace Alura.Estacionamento.Modelos
             return this.Faturado;
         }
 
+        private Operador _operador;
+
+        public Operador Operador { get => _operador; set=> _operador = value; }
+
         public string MostrarFaturamento()
         {
             string totalfaturado = String.Format("Total faturado até o momento :::::::::::::::::::::::::::: {0:c}", this.TotalFaturado());
@@ -109,7 +113,8 @@ namespace Alura.Estacionamento.Modelos
             string ticket = $"### Ticket Estacionamento Alura ###\n" +
                 $">>> Identificador: {veiculo.IdTicket}\n" +
                 $">>> Data/Hora de entrada: {DateTime.Now}\n" +
-                $">>> Placa Veículo: {veiculo.Placa}";
+                $">>> Placa Veículo: {veiculo.Placa}\n" +
+                $">>> Operador Pátio: {this.Operador.Nome} - Mátricula: {this.Operador.Nome}";
           
             veiculo.Ticket = ticket;
             return ticket;
