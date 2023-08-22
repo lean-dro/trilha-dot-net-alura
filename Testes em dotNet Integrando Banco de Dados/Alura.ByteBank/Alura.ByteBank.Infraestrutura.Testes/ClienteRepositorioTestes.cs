@@ -33,9 +33,44 @@ namespace Alura.ByteBank.Infraestrutura.Testes
 
             //Assert
             Assert.NotNull(lista);
-            Assert.Equal(3, lista.Count);
+            Assert.Equal(6, lista.Count);
+        }
+
+        [Fact]
+        public void TestaInsercaoNovoClienteNoBancoDeDados()
+        {
+            //Arrange
+
+            var cliente = new Cliente()
+            {
+                Nome = "Daniel Wesley",
+                CPF = "452.552.922-90",
+                Profissao = "Estagiario",
+                Identificador = Guid.NewGuid()
+            };
+
+            //Act
+            var adicionado = repositorio.Adicionar(cliente);
+
+            //Assert
+            Assert.True(adicionado);
+        }
+
+        [Fact]
+        public void TestaAtualizacaoClienteNoBancoDeDados(){
+            //Arrange
+            var clienteAlteracao = repositorio.ObterPorId(4);
+
+            //Act
+            clienteAlteracao.Nome = "Pedro Queixada";
+            var atualizado = repositorio.Atualizar(4, clienteAlteracao);
+
+            //Assert 
+            Assert.True(atualizado);
         }
 
 
     }
 }
+
+		

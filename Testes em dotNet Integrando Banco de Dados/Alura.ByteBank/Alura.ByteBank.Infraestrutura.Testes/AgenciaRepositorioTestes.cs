@@ -4,6 +4,7 @@ using Alura.ByteBank.Dominio.Interfaces.Repositorios;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,57 @@ namespace Alura.ByteBank.Infraestrutura.Testes
             Assert.True(agencias.Count > 0);
         }
 
+        [Fact]
+        public void TestaAdicionarAgenciaNoBancoDeDados()
+        {
+            //Arrange
+            var agencia = new Agencia()
+            {
+                Identificador = Guid.NewGuid(),
+                Nome = "Agência Maraca",
+                Endereco = "Rua Professor Eurico Rabelo",
+                Numero = 231
+            };
 
+            //Act
+            var adicionado = repositorio.Adicionar(agencia);
+
+            //Assert
+            Assert.True(adicionado);
+        }
+        [Fact]
+        public void TestaAtualizarAgenciaNoBancoDeDados() {
+            //Arrange
+            var agenciaDesejada = repositorio.ObterPorId(1);
+
+            agenciaDesejada.Numero = 123;
+            //Act
+            var atualizado = repositorio.Atualizar(1, agenciaDesejada);
+
+            //Assert
+            Assert.True(atualizado);
+
+
+        }
+        [Fact]
+        public void TestaRemoverInformacaoDeterminadaAgencia()
+        {
+            //Arrange
+
+            //
+            var atualizado = repositorio.Excluir(5);
+
+            //Assert 
+            Assert.True(atualizado);
+        }
+
+        [Fact]
+        public void TestaExcecaoConsultaAgenciaPorId()
+        {
+            //Assert
+            Assert.Throws<FormatException>(
+                () => repositorio.ObterPorId(10)
+             );
+        }
     }
 }
