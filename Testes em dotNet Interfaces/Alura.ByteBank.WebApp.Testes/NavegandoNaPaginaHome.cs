@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Alura.ByteBank.WebApp.Testes.seleniumIDEScripts
+namespace Alura.ByteBank.WebApp.Testes
 {
 
 
@@ -78,6 +78,55 @@ namespace Alura.ByteBank.WebApp.Testes.seleniumIDEScripts
 
             Assert.Contains("img", Driver.PageSource);
 
+        }
+
+        [Theory]
+        [InlineData($"/Agencia/Index")]
+        [InlineData($"/Agencia/Create")]
+        [InlineData($"/Agencia/Edit/1")]
+        [InlineData($"/Agencia/Details/1")]
+
+        [InlineData($"/Clientes/Create")]
+        [InlineData($"/Clientes/Edit/1")]
+        [InlineData($"/Clientes/Details/1")]
+
+        [InlineData($"/ContaCorrentes/Create")]
+        [InlineData($"/ContaCorrentes/Edit/1")]
+        [InlineData($"/ContaCorrentes/Details/1")]
+        public void TentaAcessarPaginaSemEstarLogado(string url)
+        {
+            string urlCompleta = servidor + url;
+            Driver.Navigate().GoToUrl(urlCompleta);
+            Assert.DoesNotContain("ByteBank",   Driver.PageSource);
+        }
+        [Theory]
+        [InlineData($"/Agencia/Index")]
+        [InlineData($"/Agencia/Create")]
+        [InlineData($"/Agencia/Edit/1")]
+        [InlineData($"/Agencia/Details/1")]
+
+        [InlineData($"/Clientes/Create")]
+        [InlineData($"/Clientes/Edit/1")]
+        [InlineData($"/Clientes/Details/1")]
+
+        [InlineData($"/ContaCorrentes/Create")]
+        [InlineData($"/ContaCorrentes/Edit/1")]
+        [InlineData($"/ContaCorrentes/Details/1")]
+        public void TentaAcessarPaginaEstandoLogado(string url)
+        {
+            string urlCompleta = servidor + url;
+
+            Driver.Navigate().GoToUrl("https://localhost:44309");
+            Driver.FindElement(By.LinkText("Login")).Click();
+            Driver.FindElement(By.Id("Email")).Click();
+            Driver.FindElement(By.Id("Email")).SendKeys("andre@email.com");
+            Driver.FindElement(By.Id("Senha")).Click();
+            Driver.FindElement(By.Id("Senha")).SendKeys("senha01");
+
+            Driver.FindElement(By.Id("btn-logar")).Click();
+
+            Driver.Navigate().GoToUrl(urlCompleta);
+            Assert.Contains("ByteBank", Driver.PageSource);
         }
 
         public void Dispose()
