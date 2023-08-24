@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
+using Alura.ByteBank.WebApp.Testes.PageObjects;
 
 namespace Alura.ByteBank.WebApp.Testes
 {
@@ -36,14 +37,12 @@ namespace Alura.ByteBank.WebApp.Testes
         [Fact]
         public void AposRealizarLoginVerificarOpcaoAgenciasNoMenu()
         {
+            var LoginPO = new LoginPO(Driver);
+            LoginPO.PreencherCampoELogar("andre@email.com", "senha01");
+            LoginPO.btnClick();
 
-            Email.Click();
-            Email.SendKeys("andre@email.com");
-            Senha.Click();
-            Senha.SendKeys("senha01");
-
-            BotaoEntrar.Click();
             Assert.Contains("Agência", Driver.PageSource);
+          
         }
         [Fact]
         public void TentativaDeLoginComCamposVazios()

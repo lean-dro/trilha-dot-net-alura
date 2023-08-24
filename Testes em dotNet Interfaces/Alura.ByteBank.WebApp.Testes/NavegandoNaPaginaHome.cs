@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Alura.ByteBank.WebApp.Testes.PageObjects;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
@@ -17,17 +18,22 @@ namespace Alura.ByteBank.WebApp.Testes
     public class NavegandoNaPaginaHome : IDisposable
     {
         private string servidor = "https://localhost:44309";
+       
+      
         ITestOutputHelper SaidaClasse;
         static FirefoxOptions Configuracoes = new FirefoxOptions
         {
             AcceptInsecureCertificates = true
         };
         IWebDriver Driver = new FirefoxDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), Configuracoes);
-
+        private HomePO home;
+        private LoginPO login;
         public NavegandoNaPaginaHome(ITestOutputHelper saidaConstrutor)
         {
-
+            home = new HomePO(Driver);
+            login = new LoginPO(Driver);
             SaidaClasse = saidaConstrutor;
+
 
         }
 
@@ -58,26 +64,17 @@ namespace Alura.ByteBank.WebApp.Testes
         [Fact]
         public void LogandoNoSistema()
         {
-            Driver.Navigate().GoToUrl("https://localhost:44309");
-            Driver.FindElement(By.LinkText("Login")).Click();
-            Driver.FindElement(By.Id("Email")).Click();
-            Driver.FindElement(By.Id("Email")).SendKeys("andre@email.com");
-            Driver.FindElement(By.Id("Senha")).Click();
-            Driver.FindElement(By.Id("Senha")).SendKeys("senha01");
-
-            Driver.FindElement(By.Id("btn-logar")).Click();
-            Driver.FindElement(By.Id("agencia")).Click();
-            Driver.FindElement(By.Id("home")).Click();
+            home.NavegarParaUrlDesejada("https://localhost:44309/UsuarioApps/Login");
+            login.PreencherCampoELogar("andre@email.com", "senha01");
+            login.btnClick();
         }
         [Fact]
         public void ValidaLinkLoginNaHome()
         {
-            Driver.Navigate().GoToUrl(servidor);
+            home.NavegarParaUrlDesejada(servidor);
             Driver.FindElement(By.LinkText("Login")).Click();
 
-
             Assert.Contains("img", Driver.PageSource);
-
         }
 
         [Theory]
@@ -95,8 +92,9 @@ namespace Alura.ByteBank.WebApp.Testes
         [InlineData($"/ContaCorrentes/Details/1")]
         public void TentaAcessarPaginaSemEstarLogado(string url)
         {
+            home.NavegarParaUrlDesejada("https://localhost:44309/UsuarioApps/Login");
             string urlCompleta = servidor + url;
-            Driver.Navigate().GoToUrl(urlCompleta);
+            home.NavegarParaUrlDesejada(urlCompleta);
             Assert.DoesNotContain("ByteBank",   Driver.PageSource);
         }
         [Theory]
@@ -114,18 +112,12 @@ namespace Alura.ByteBank.WebApp.Testes
         [InlineData($"/ContaCorrentes/Details/1")]
         public void TentaAcessarPaginaEstandoLogado(string url)
         {
+            home.NavegarParaUrlDesejada("https://localhost:44309/UsuarioApps/Login");
             string urlCompleta = servidor + url;
+            login.PreencherCampoELogar("andre@email.com", "senha01");
+            login.btnClick();
 
-            Driver.Navigate().GoToUrl("https://localhost:44309");
-            Driver.FindElement(By.LinkText("Login")).Click();
-            Driver.FindElement(By.Id("Email")).Click();
-            Driver.FindElement(By.Id("Email")).SendKeys("andre@email.com");
-            Driver.FindElement(By.Id("Senha")).Click();
-            Driver.FindElement(By.Id("Senha")).SendKeys("senha01");
-
-            Driver.FindElement(By.Id("btn-logar")).Click();
-
-            Driver.Navigate().GoToUrl(urlCompleta);
+            home.NavegarParaUrlDesejada(urlCompleta);
             Assert.Contains("ByteBank", Driver.PageSource);
         }
 
