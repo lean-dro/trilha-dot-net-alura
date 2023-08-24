@@ -8,24 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
 using Alura.ByteBank.WebApp.Testes.PageObjects;
+using Alura.ByteBank.WebApp.Testes.Utilitarios;
 
 namespace Alura.ByteBank.WebApp.Testes
 {
-    public class AposRealizarLogin:IDisposable
+    public class AposRealizarLogin:IDisposable, IClassFixture<Gerenciador>
     {
         private string servidor = "https://localhost:44309";
         private IWebElement Email;
         private IWebElement Senha;
         private IWebElement BotaoEntrar;
         ITestOutputHelper SaidaClasse;
-        static FirefoxOptions Configuracoes = new FirefoxOptions
-        {
-            AcceptInsecureCertificates = true
-        };
-        IWebDriver Driver = new FirefoxDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), Configuracoes);
 
-        public AposRealizarLogin(ITestOutputHelper saidaConstrutor)
+        IWebDriver Driver;
+
+        public AposRealizarLogin(ITestOutputHelper saidaConstrutor, Gerenciador gerenciador)
         {
+            Driver = gerenciador.Driver;
             Driver.Navigate().GoToUrl(servidor);
             SaidaClasse = saidaConstrutor;
             var login = Driver.FindElement(By.LinkText("Login"));

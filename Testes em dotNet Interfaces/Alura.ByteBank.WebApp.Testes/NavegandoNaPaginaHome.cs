@@ -1,4 +1,5 @@
 ﻿using Alura.ByteBank.WebApp.Testes.PageObjects;
+using Alura.ByteBank.WebApp.Testes.Utilitarios;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using System;
@@ -15,7 +16,7 @@ namespace Alura.ByteBank.WebApp.Testes
 {
 
 
-    public class NavegandoNaPaginaHome : IDisposable
+    public class NavegandoNaPaginaHome : IDisposable, IClassFixture<Gerenciador>
     {
         private string servidor = "https://localhost:44309";
        
@@ -25,7 +26,8 @@ namespace Alura.ByteBank.WebApp.Testes
         {
             AcceptInsecureCertificates = true
         };
-        IWebDriver Driver = new FirefoxDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), Configuracoes);
+        IWebDriver Driver;
+       
         private HomePO home;
         private LoginPO login;
         public NavegandoNaPaginaHome(ITestOutputHelper saidaConstrutor)
@@ -33,7 +35,7 @@ namespace Alura.ByteBank.WebApp.Testes
             home = new HomePO(Driver);
             login = new LoginPO(Driver);
             SaidaClasse = saidaConstrutor;
-
+            
 
         }
 
@@ -95,6 +97,7 @@ namespace Alura.ByteBank.WebApp.Testes
             home.NavegarParaUrlDesejada("https://localhost:44309/UsuarioApps/Login");
             string urlCompleta = servidor + url;
             home.NavegarParaUrlDesejada(urlCompleta);
+           
             Assert.DoesNotContain("ByteBank",   Driver.PageSource);
         }
         [Theory]
@@ -110,13 +113,13 @@ namespace Alura.ByteBank.WebApp.Testes
         [InlineData($"/ContaCorrentes/Create")]
         [InlineData($"/ContaCorrentes/Edit/1")]
         [InlineData($"/ContaCorrentes/Details/1")]
-        public void TentaAcessarPaginaEstandoLogado(string url)
+        public async Task TentaAcessarPaginaEstandoLogadoAsync(string url)
         {
             home.NavegarParaUrlDesejada("https://localhost:44309/UsuarioApps/Login");
             string urlCompleta = servidor + url;
             login.PreencherCampoELogar("andre@email.com", "senha01");
             login.btnClick();
-
+          
             home.NavegarParaUrlDesejada(urlCompleta);
             Assert.Contains("ByteBank", Driver.PageSource);
         }
