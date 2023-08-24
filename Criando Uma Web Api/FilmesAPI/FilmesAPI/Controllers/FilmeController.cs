@@ -10,7 +10,10 @@ public class FilmeController
     [HttpPost]
     public void AdicionaFilme([FromBody]Filme filme)
     {
-        filmes.Add(filme);
-        Console.WriteLine(filme);
+    
+            filmes.Add(filme);
+            Console.WriteLine(filme);
+      
+
     }
 }
