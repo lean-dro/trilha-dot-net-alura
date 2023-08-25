@@ -109,3 +109,17 @@ C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\Filme
 C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\obj\Debug\net6.0\FilmesAPI.Testes.pdb
 C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\obj\Debug\net6.0\FilmesAPI.Testes.genruntimeconfig.cache
 C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\obj\Debug\net6.0\ref\FilmesAPI.Testes.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\Criando Uma Web Api\FilmesAPI\FilmesAPI.Testes\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
