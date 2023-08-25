@@ -14,7 +14,7 @@ namespace FilmesAPI.Testes
         {
             filme.Titulo = "Teste";
             filme.Duracao = 500;
-            filme.Genero = "Teste";
+            filme.Genero.Nome = "Teste";
 
             Assert.True(!(filme.Duracao <= 330));
         }
@@ -23,7 +23,7 @@ namespace FilmesAPI.Testes
         {
             filme.Titulo = "Teste";
             filme.Duracao = 329;
-            filme.Genero = "Teste";
+            filme.Genero.Nome = "Teste";
 
             Assert.True((filme.Duracao <= 330));
         }

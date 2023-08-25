@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "OMARZmMVAq85tawfYY0nWitUHv1yzQt/jyUU7NjyU6b3fX1r2zXSj1cCu9N9A8CAeddFXNt/W6vOaV8XfmxtXQ==",
+  "dgSpecHash": "KHxonAcg/N2WZjGO5YnHd8s3/jy9Mw0rQcdpQX9rL/4fp+Z7X+8Eo+21g42q53ynIYTRKhYmyNRwwu5WWho88g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Leandro\\source\\repos\\trilha-dot-net\\Criando Uma Web Api\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Leandro\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Leandro\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.10\\microsoft.entityframeworkcore.abstractions.7.0.10.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.10\\microsoft.entityframeworkcore.analyzers.7.0.10.nupkg.sha512",

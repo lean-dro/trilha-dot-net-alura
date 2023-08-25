@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "rOIgLtOuOWpDfV4jpb77QV4QSCXS2D8GHhmFxb2JI1EW/v8GZA2YKpeR5VoCDyBpLTLILNziUj/LX9QfXW5ozg==",
+  "dgSpecHash": "mmNhjzVLmU+Q+0Fp8Mnai9tJwCDUaE+qy2RP3kPfms2GD4HYhG6K/xcX3HmUKdA9xJK7HB2rNZB08PH2TFE9yw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Leandro\\source\\repos\\trilha-dot-net\\Criando Uma Web Api\\FilmesAPI\\FilmesAPI.Testes\\FilmesAPI.Testes.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Leandro\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Leandro\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
+    "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.10\\microsoft.entityframeworkcore.abstractions.7.0.10.nupkg.sha512",
     "C:\\Users\\Leandro\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.10\\microsoft.entityframeworkcore.analyzers.7.0.10.nupkg.sha512",

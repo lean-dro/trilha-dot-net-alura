@@ -6,12 +6,12 @@ namespace FilmesAPI.Models
     {
         [Key]
         [Required]
-        public int Identificador { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Necessário título")]
         public string Titulo { get; set; }
         
         [Required]
-        public string Genero { get; set; }
+        public Genero Genero { get; set; }
         
         [Required(ErrorMessage = "Necessário duração")]
         [Range(70, 330, ErrorMessage ="Duração inválida")]
@@ -19,7 +19,7 @@ namespace FilmesAPI.Models
 
         public override string ToString()
         {
-            string fichaFilme = $"Filme: {this.Titulo}\nGênero: {this.Genero}\nDuração: {this.Duracao}";
+            string fichaFilme = $"Filme: {this.Titulo}\nGênero: {this.Genero.Nome}\nDuração: {this.Duracao}";
             return fichaFilme;
         }
     }
