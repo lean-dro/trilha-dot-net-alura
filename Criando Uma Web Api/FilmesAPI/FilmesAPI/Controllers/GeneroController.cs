@@ -17,16 +17,17 @@ namespace FilmesAPI.Controllers
             _context = context;
         }
         [HttpGet]
-        public IEnumerable<Genero> ObterTodosGeneros([FromQuery] int skip = 0, int take = 50)
+        public IEnumerable<ReadGeneroDTO> ObterTodosGeneros([FromQuery] int skip = 0, int take = 50)
         {
-            return _context.Generos.Skip(skip).Take(take);
+            return _mapper.Map<List<ReadGeneroDTO>>(_context.Generos.Skip(skip).Take(take));
         }
         [HttpGet("{id}")]
-        public IActionResult ObterGeneroPorId([FromBody] int id)
+        public IActionResult ObterGeneroPorId(int id)
         {
-            var generoEncontrado = _context.Filmes.FirstOrDefault(generos=> generos.Id.Equals(id));
+            var generoEncontrado = _context.Generos.FirstOrDefault(generos => generos.Id == id);
             if(generoEncontrado == null)return NotFound();
-            return Ok(generoEncontrado);
+            var generoDTO = _mapper.Map<ReadGeneroDTO>(generoEncontrado);
+            return Ok(generoDTO);
         }
         
         [HttpPost]
@@ -44,6 +45,23 @@ namespace FilmesAPI.Controllers
             {
                 return Conflict("Já existe.");
             }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult RenomearGenero(int id, [FromBody] UpdateGenero updateGeneroDTO) 
+        {
+            var generoEncontrado = _context.Generos.FirstOrDefault(g => g.Id.Equals(id));
+            if (generoEncontrado != null)
+            {
+                generoEncontrado.Nome = updateGeneroDTO.Nome;
+                _context.SaveChanges();
+                return NoContent();
+            }
+            else
+            {
+                return Conflict("Não encontrado.");
+            }
+           
         }
     }
 }

@@ -12,20 +12,5 @@ namespace FilmesAPI.Data
         public DbSet<Filme> Filmes { get; set; }
         public DbSet<Genero> Generos { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Filme>(entidade =>
-        //    {
-        //        entidade.ToTable("filme");
-        //        entidade.HasKey(e => e.Id);
-        //        entidade.Property(e => e.Titulo);
-        //        entidade.Property(e => e.Duracao);
-        //        entidade.HasOne(g => g.Genero);
-
-                
-        //    });
-        //    base.OnModelCreating(modelBuilder);
-
-        //}
     }
 }

@@ -8,7 +8,7 @@ namespace FilmesAPI.Profiles
     {
         public FilmeProfile()
         {
-            CreateMap<CreateFilmeDTO, Filme>();
+            CreateMap<Filme, ReadFilmeDTO>();
         }
     }
 }

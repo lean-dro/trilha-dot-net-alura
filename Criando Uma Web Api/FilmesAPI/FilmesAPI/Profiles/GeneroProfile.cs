@@ -9,6 +9,7 @@ namespace FilmesAPI.Profiles
         public GeneroProfile()
         {
             CreateMap<CreateGeneroDTO, Genero>();
+            CreateMap<Genero, ReadGeneroDTO>();
         }
     }
 }
