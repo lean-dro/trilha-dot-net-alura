@@ -10,6 +10,9 @@ namespace FilmesAPI.Profiles
         {
             CreateMap<CreateGeneroDTO, Genero>();
             CreateMap<Genero, ReadGeneroDTO>();
+            CreateMap<UpdateGeneroDTO, Genero>();
+            CreateMap<Genero, UpdateGeneroDTO>();
+            
         }
     }
 }

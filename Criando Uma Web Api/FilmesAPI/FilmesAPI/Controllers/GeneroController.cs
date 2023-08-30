@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FilmesAPI.Data;
 using FilmesAPI.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmesAPI.Controllers
@@ -48,7 +49,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult RenomearGenero(int id, [FromBody] UpdateGenero updateGeneroDTO) 
+        public IActionResult RenomearGenero(int id, [FromBody] UpdateGeneroDTO updateGeneroDTO) 
         {
             var generoEncontrado = _context.Generos.FirstOrDefault(g => g.Id.Equals(id));
             if (generoEncontrado != null)
@@ -59,9 +60,51 @@ namespace FilmesAPI.Controllers
             }
             else
             {
-                return Conflict("Não encontrado.");
+                return NotFound("Não encontrado.");
             }
            
         }
+
+        [HttpPatch("{id}")]
+        public IActionResult RenomearGeneroParcial(int id, 
+            JsonPatchDocument<UpdateGeneroDTO> patch)
+        {
+            var generoEncontrado = _context.Generos.FirstOrDefault(g => g.Id.Equals(id));
+            if (generoEncontrado != null)
+            {
+                var generoAtualizacao = _mapper.Map<UpdateGeneroDTO>(generoEncontrado);
+                patch.ApplyTo(generoAtualizacao, ModelState);
+
+                if (!TryValidateModel(generoAtualizacao))
+                {
+                    return Conflict("teste");
+                   
+                }
+                _mapper.Map(generoAtualizacao, generoEncontrado);
+                _context.SaveChanges();
+                return NoContent();
+            }
+            else
+            {
+                return NotFound("Não encontrado.");
+            }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeletaGenero(int id)
+        {
+            var generoEncontrado = _context.Generos.FirstOrDefault(g => g.Id.Equals(id));
+            if (generoEncontrado != null)
+            {
+                _context.Remove(generoEncontrado);
+                _context.SaveChanges();
+                return NoContent();
+            }
+            else
+            {
+                return NotFound("Não encontrado.");
+            }
+        }
     }
+
+   
 }

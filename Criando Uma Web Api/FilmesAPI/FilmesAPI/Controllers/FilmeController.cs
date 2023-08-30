@@ -18,8 +18,14 @@ public class FilmeController : Controller
         _context = contexto;
 
     }
-
+    /// <summary>
+    /// Adiciona filme ao banco de dados
+    /// </summary>
+    /// <param name="filmeDTO">Parâmetros necessários para inserção</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="201">Caso a inserção seja feita com sucesso</response>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     public IActionResult AdicionaFilme([FromBody]CreateFilmeDTO filmeDTO)
     {
         var genero = _context.Generos.FirstOrDefault(generos => filmeDTO.Genero.Equals(generos.Nome));
@@ -89,5 +95,12 @@ public class FilmeController : Controller
             return NoContent();
         }
     }
-
+    [HttpDelete("{id}")]
+    public IActionResult RemoverFilme(int id){
+        var filme = _context.Filmes.FirstOrDefault(filmes => filmes.Id.Equals(id));
+        if (filme == null) return NotFound();
+        _context.Filmes.Remove(filme);
+        _context.SaveChanges();
+        return NoContent();
+    }
 }
