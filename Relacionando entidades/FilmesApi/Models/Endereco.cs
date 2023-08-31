@@ -4,6 +4,7 @@ namespace FilmesApi.Models
 {
     public class Endereco
     {
+        public virtual Cinema Cinema { get; set; }
         [Key]
         [Required]
         public int Id { get; set; }
@@ -25,5 +26,6 @@ namespace FilmesApi.Models
         [MaxLength(9, ErrorMessage = "CEP Inválido")]
         [MinLength(8, ErrorMessage = "CEP Inválido")]
         public string Cep { get; set; }
+        
     }
 }

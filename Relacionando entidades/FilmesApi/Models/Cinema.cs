@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FilmesApi.Models
 {
@@ -10,5 +11,7 @@ namespace FilmesApi.Models
 
         [Required(ErrorMessage ="Obrigatório um nome para o cinema")]
         public string Nome { get; set; }
+        public int EnderecoId { get; set;}
+        public virtual Endereco Endereco { get; set; }
     }
 }
