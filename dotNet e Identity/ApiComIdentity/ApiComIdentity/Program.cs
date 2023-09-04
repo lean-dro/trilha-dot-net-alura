@@ -1,5 +1,6 @@
 using ApiComIdentity.Data;
 using ApiComIdentity.Models;
+using ApiComIdentity.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,8 @@ builder.Services.
     AddEntityFrameworkStores<UsuarioDbContext>().
     AddDefaultTokenProviders();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<CadastroService>();
 
 var app = builder.Build();
 

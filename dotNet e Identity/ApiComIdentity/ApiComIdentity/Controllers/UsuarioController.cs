@@ -1,4 +1,5 @@
 ﻿using ApiComIdentity.Data.Dtos;
+using ApiComIdentity.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiComIdentity.Controllers
@@ -7,10 +8,18 @@ namespace ApiComIdentity.Controllers
     [Route("[Controller]")]
     public class UsuarioController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult CadastrarUsuario([FromBody] CreateUsuarioDTO createUsuarioDTO)
+        private CadastroService _cadastroService;
+
+        public UsuarioController(CadastroService cadastroService)
         {
-            return NoContent();
+            _cadastroService = cadastroService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CadastrarUsuario([FromBody] CreateUsuarioDTO createUsuarioDTO)
+        {
+            await _cadastroService.Cadastrar(createUsuarioDTO);
+            return Ok("Cadastrado com sucesso");
         }
     }
 }
