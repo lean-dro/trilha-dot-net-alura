@@ -8,18 +8,25 @@ namespace ApiComIdentity.Controllers
     [Route("[Controller]")]
     public class UsuarioController : ControllerBase
     {
-        private CadastroService _cadastroService;
+        private UsuarioService _usuarioService;
 
-        public UsuarioController(CadastroService cadastroService)
+        public UsuarioController(UsuarioService cadastroService)
         {
-            _cadastroService = cadastroService;
+            _usuarioService = cadastroService;
         }
 
-        [HttpPost]
+        [HttpPost("cadastrar")]
         public async Task<IActionResult> CadastrarUsuario([FromBody] CreateUsuarioDTO createUsuarioDTO)
         {
-            await _cadastroService.Cadastrar(createUsuarioDTO);
+            await _usuarioService.Cadastrar(createUsuarioDTO);
             return Ok("Cadastrado com sucesso");
+        }
+
+        [HttpPost("logar")]
+        public async Task<IActionResult> Login([FromBody] LoginUsuarioDTO loginUsuarioDTO)
+        { 
+            var token = await _usuarioService.Login(loginUsuarioDTO);
+            return Ok(token);
         }
     }
 }

@@ -47,3 +47,8 @@ C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\Ap
 C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\MySqlConnector.dll
 C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Leandro\source\repos\trilha-dot-net\dotNet e Identity\ApiComIdentity\ApiComIdentity\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
